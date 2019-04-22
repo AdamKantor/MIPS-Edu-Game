@@ -27,10 +27,17 @@ class InstructionMenu extends GameScene{
     init(){
         console.log("Instruction Menu Initialized");
         var addInstruction = Button.getButton('Add_Ins',50,30,1,3,'Add');
+        var goBack = Button.getButton('Back',350,30,1,3,'Back');
         var AddHint= new HintEvent('IMHint');
+        var Back = new NewSceneEvent(new MainScene())
+
         AddHint.setHintContent('Adds two registers and stores the result in a register \nadd $d, $s, $t');
         addInstruction.addLongPressEvent(AddHint);
         addInstruction.addClickEvent(AddHint);
         this.addComponent(addInstruction,-1);
+        
+        goBack.addLongPressEvent(Back);
+        goBack.addClickEvent(Back);
+        this.addComponent(goBack,-1);
     }
 }
